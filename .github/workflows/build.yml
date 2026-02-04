@@ -15,6 +15,10 @@ jobs:
               sudo apt-get update
               sudo apt-get install -y build-essential gcc g++ make libc6-dev git rsync wget cpio unzip python3
 
+          - name: Clear Output directory
+            run: |
+              rm -rf output
+
           - name: Build
             run: |
               make

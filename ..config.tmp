@@ -1,5 +1,5 @@
 deps_config := \
-	/home/pydmx-user/PyDMX/OS/buildroot/output/.br2-external.in.menus \
+	/home/pydmx-user/PyDMX/OS/PyDMX-RPi4-BuildrootOS/output/.br2-external.in.menus \
 	Config.in.legacy \
 	package/zstd/Config.in.host \
 	package/zip/Config.in.host \
@@ -1285,7 +1285,7 @@ deps_config := \
 	package/lcms2/Config.in \
 	package/kmsxx/Config.in \
 	package/jpeg-turbo/Config.in.options \
-	/home/pydmx-user/PyDMX/OS/buildroot/output/.br2-external.in.jpeg \
+	/home/pydmx-user/PyDMX/OS/PyDMX-RPi4-BuildrootOS/output/.br2-external.in.jpeg \
 	package/jpeg/Config.in \
 	package/jbig2dec/Config.in \
 	package/jasper/Config.in \
@@ -1370,7 +1370,7 @@ deps_config := \
 	package/pkcs11-helper/Config.in \
 	package/parsec-tool/Config.in \
 	package/parsec/Config.in \
-	/home/pydmx-user/PyDMX/OS/buildroot/output/.br2-external.in.openssl \
+	/home/pydmx-user/PyDMX/OS/PyDMX-RPi4-BuildrootOS/output/.br2-external.in.openssl \
 	package/libressl/Config.in \
 	package/libopenssl/Config.in \
 	package/openssl/Config.in \
@@ -3298,11 +3298,11 @@ deps_config := \
 	package/busybox/Config.in \
 	package/Config.in \
 	package/linux-tools/Config.in \
-	/home/pydmx-user/PyDMX/OS/buildroot/output/.br2-external.in.linux \
+	/home/pydmx-user/PyDMX/OS/PyDMX-RPi4-BuildrootOS/output/.br2-external.in.linux \
 	linux/Config.ext.in \
 	linux/Config.in \
-	/home/pydmx-user/PyDMX/OS/buildroot/output/.br2-external.in.init \
-	/home/pydmx-user/PyDMX/OS/buildroot/output/.br2-external.in.skeleton \
+	/home/pydmx-user/PyDMX/OS/PyDMX-RPi4-BuildrootOS/output/.br2-external.in.init \
+	/home/pydmx-user/PyDMX/OS/PyDMX-RPi4-BuildrootOS/output/.br2-external.in.skeleton \
 	system/Config.in \
 	package/newlib-bare-metal/Config.in \
 	toolchain/toolchain-bare-metal-buildroot/Config.in \
@@ -3313,7 +3313,7 @@ deps_config := \
 	toolchain/toolchain-external/toolchain-external-synopsys-arc/Config.in.options \
 	toolchain/toolchain-external/toolchain-external-arm-aarch64-be/Config.in.options \
 	toolchain/toolchain-external/toolchain-external-arm-aarch64/Config.in.options \
-	/home/pydmx-user/PyDMX/OS/buildroot/output/.br2-external.in.toolchains \
+	/home/pydmx-user/PyDMX/OS/PyDMX-RPi4-BuildrootOS/output/.br2-external.in.toolchains \
 	toolchain/toolchain-external/toolchain-external-custom/Config.in \
 	toolchain/toolchain-external/toolchain-external-bootlin/Config.in \
 	toolchain/toolchain-external/toolchain-external-arm-arm/Config.in \
@@ -3346,29 +3346,29 @@ deps_config := \
 	arch/Config.in.arm \
 	arch/Config.in.arc \
 	arch/Config.in \
-	/home/pydmx-user/PyDMX/OS/buildroot/output/.br2-external.in.paths \
+	/home/pydmx-user/PyDMX/OS/PyDMX-RPi4-BuildrootOS/output/.br2-external.in.paths \
 	Config.in
 
-/home/pydmx-user/PyDMX/OS/buildroot/output/build/buildroot-config/auto.conf: \
+/home/pydmx-user/PyDMX/OS/PyDMX-RPi4-BuildrootOS/output/build/buildroot-config/auto.conf: \
 	$(deps_config)
 
 ifneq "$(SKIP_LEGACY)" ""
-/home/pydmx-user/PyDMX/OS/buildroot/output/build/buildroot-config/auto.conf: FORCE
+/home/pydmx-user/PyDMX/OS/PyDMX-RPi4-BuildrootOS/output/build/buildroot-config/auto.conf: FORCE
 endif
 ifneq "$(BR2_DEFCONFIG)" ""
-/home/pydmx-user/PyDMX/OS/buildroot/output/build/buildroot-config/auto.conf: FORCE
+/home/pydmx-user/PyDMX/OS/PyDMX-RPi4-BuildrootOS/output/build/buildroot-config/auto.conf: FORCE
 endif
 ifneq "$(HOST_GCC_VERSION)" "10"
-/home/pydmx-user/PyDMX/OS/buildroot/output/build/buildroot-config/auto.conf: FORCE
+/home/pydmx-user/PyDMX/OS/PyDMX-RPi4-BuildrootOS/output/build/buildroot-config/auto.conf: FORCE
 endif
-ifneq "$(BASE_DIR)" "/home/pydmx-user/PyDMX/OS/buildroot/output"
-/home/pydmx-user/PyDMX/OS/buildroot/output/build/buildroot-config/auto.conf: FORCE
+ifneq "$(BASE_DIR)" "/home/pydmx-user/PyDMX/OS/PyDMX-RPi4-BuildrootOS/output"
+/home/pydmx-user/PyDMX/OS/PyDMX-RPi4-BuildrootOS/output/build/buildroot-config/auto.conf: FORCE
 endif
 ifneq "$(HOSTARCH)" "aarch64"
-/home/pydmx-user/PyDMX/OS/buildroot/output/build/buildroot-config/auto.conf: FORCE
+/home/pydmx-user/PyDMX/OS/PyDMX-RPi4-BuildrootOS/output/build/buildroot-config/auto.conf: FORCE
 endif
-ifneq "$(BR2_VERSION_FULL)" "2025.11-1182-g8501cb30fb-dirty"
-/home/pydmx-user/PyDMX/OS/buildroot/output/build/buildroot-config/auto.conf: FORCE
+ifneq "$(BR2_VERSION_FULL)" "-gae9fef6e-dirty"
+/home/pydmx-user/PyDMX/OS/PyDMX-RPi4-BuildrootOS/output/build/buildroot-config/auto.conf: FORCE
 endif
 
 $(deps_config): ;
