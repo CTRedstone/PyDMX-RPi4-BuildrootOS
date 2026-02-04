@@ -1,0 +1,47 @@
+[ 12%] Building C object CMakeFiles/libupb.dir/upb/mini_descriptor/link.c.o
+[ 12%] Building C object CMakeFiles/libupb.dir/upb/mini_table/extension_registry.c.o
+g++: fatal error: Killed signal terminated program cc1plus
+compilation terminated.
+make[3]: *** [CMakeFiles/libprotobuf-lite.dir/build.make:147: CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/extension_set.cc.o] Error 1
+make[3]: *** Waiting for unfinished jobs....
+[ 13%] Building C object CMakeFiles/libupb.dir/upb/mini_table/internal/message.c.o
+[ 13%] Building C object CMakeFiles/libupb.dir/upb/mini_table/message.c.o
+[ 13%] Building C object CMakeFiles/libupb.dir/upb/reflection/def_pool.c.o
+[ 13%] Building C object CMakeFiles/libupb.dir/upb/reflection/def_type.c.o
+[ 14%] Building C object CMakeFiles/libupb.dir/upb/reflection/desc_state.c.o
+[ 14%] Building C object CMakeFiles/libupb.dir/upb/reflection/enum_def.c.o
+[ 14%] Building C object CMakeFiles/libupb.dir/upb/reflection/enum_reserved_range.c.o
+[ 14%] Building C object CMakeFiles/libupb.dir/upb/reflection/enum_value_def.c.o
+[ 15%] Building C object CMakeFiles/libupb.dir/upb/reflection/extension_range.c.o
+[ 15%] Building C object CMakeFiles/libupb.dir/upb/reflection/field_def.c.o
+[ 15%] Building C object CMakeFiles/libupb.dir/upb/reflection/file_def.c.o
+[ 16%] Building C object CMakeFiles/libupb.dir/upb/reflection/internal/def_builder.c.o
+[ 16%] Building C object CMakeFiles/libupb.dir/upb/reflection/internal/strdup2.c.o
+[ 16%] Building C object CMakeFiles/libupb.dir/upb/reflection/message.c.o
+[ 16%] Building C object CMakeFiles/libupb.dir/upb/reflection/message_def.c.o
+[ 17%] Building C object CMakeFiles/libupb.dir/upb/reflection/message_reserved_range.c.o
+[ 17%] Building C object CMakeFiles/libupb.dir/upb/reflection/method_def.c.o
+[ 17%] Building C object CMakeFiles/libupb.dir/upb/reflection/oneof_def.c.o
+[ 18%] Building C object CMakeFiles/libupb.dir/upb/reflection/service_def.c.o
+[ 18%] Building C object CMakeFiles/libupb.dir/upb/text/debug_string.c.o
+[ 18%] Building C object CMakeFiles/libupb.dir/upb/text/encode.c.o
+[ 18%] Building C object CMakeFiles/libupb.dir/upb/text/internal/encode.c.o
+[ 19%] Building C object CMakeFiles/libupb.dir/upb/util/def_to_proto.c.o
+[ 19%] Building C object CMakeFiles/libupb.dir/upb/util/required_fields.c.o
+[ 19%] Building C object CMakeFiles/libupb.dir/upb/wire/byte_size.c.o
+[ 19%] Building C object CMakeFiles/libupb.dir/upb/wire/decode_fast/select.c.o
+[ 20%] Building C object CMakeFiles/libupb.dir/upb/wire/decode.c.o
+[ 20%] Building C object CMakeFiles/libupb.dir/upb/wire/encode.c.o
+[ 20%] Building C object CMakeFiles/libupb.dir/upb/wire/eps_copy_input_stream.c.o
+[ 21%] Building C object CMakeFiles/libupb.dir/upb/wire/internal/decoder.c.o
+[ 21%] Building C object CMakeFiles/libupb.dir/upb/wire/reader.c.o
+[ 21%] Building C object CMakeFiles/libupb.dir/upb/reflection/cmake/google/protobuf/descriptor.upb_minitable.c.o
+[ 21%] Linking C static library libupb.a
+make[3]: Leaving directory '/home/pydmx-user/PyDMX/OS/buildroot/output/build/host-protobuf-33.3'
+[ 21%] Built target libupb
+make[3]: Leaving directory '/home/pydmx-user/PyDMX/OS/buildroot/output/build/host-protobuf-33.3'
+make[2]: *** [CMakeFiles/Makefile2:131: CMakeFiles/libprotobuf-lite.dir/all] Error 2
+make[2]: Leaving directory '/home/pydmx-user/PyDMX/OS/buildroot/output/build/host-protobuf-33.3'
+make[1]: *** [Makefile:149: all] Error 2
+make[1]: Leaving directory '/home/pydmx-user/PyDMX/OS/buildroot/output/build/host-protobuf-33.3'
+make: *** [package/pkg-generic.mk:273: /home/pydmx-user/PyDMX/OS/buildroot/output/build/host-protobuf-33.3/.stamp_built] Error 2

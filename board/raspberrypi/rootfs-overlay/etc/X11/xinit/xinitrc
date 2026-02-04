@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /opt/PyDMX
+exec python3 __main__.py
