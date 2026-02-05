@@ -11,3 +11,15 @@
 -  AC_MSG_RESULT([ok])
 +  AC_MSG_RESULT([skipped])
  ])
+ 
+--- a/configure.ac
++++ b/configure.ac
+@@ -123,11 +123,6 @@ AC_MSG_CHECKING([protoc version])
+ PROTOC_VERSION=`$PROTOC --version | sed 's/libprotoc //'`
+ AC_MSG_RESULT([$PROTOC_VERSION])
+
+-if expr $PROTOC_VERSION \< 2.3.0 > /dev/null; then
+-  AC_MSG_ERROR([protoc version too old $PROTOC_VERSION < 2.3.0])
+-fi
+-
+ AC_SUBST([PROTOC_VERSION])
