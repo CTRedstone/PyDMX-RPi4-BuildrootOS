@@ -6,14 +6,7 @@ OLAD_DEPENDENCIES = protobuf libmicrohttpd
 
 OLAD_CONF_OPTS = --disable-fatal-warnings
 
-# --- FIX: Overwrite protoc version number to bypass broken protoc version check
-OLAD_CONF_ENV += PROTOC_VERSION=2.3.0
-
-# --- FIX: Disable broken protoc version check ---
-define OLAD_FIX_PROTOC_VERSION
-    $(SED) 's/expr $$PROTOC_VERSION/echo 0/' $(@D)/configure
-endef
-
-OLAD_POST_PATCH_HOOKS += OLAD_FIX_PROTOC_VERSION
+# Disable autoreconf so patched configure is not overwritten
+OLAD_AUTORECONF = NO
 
 $(eval $(autotools-package))
