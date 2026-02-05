@@ -6,7 +6,7 @@ OLAD_DEPENDENCIES = protobuf libmicrohttpd
 
 OLAD_CONF_OPTS = --disable-fatal-warnings
 
-# Disable autoreconf so patched configure is not overwritten
-OLAD_AUTORECONF = NO
+# Needs to be on to reconfigure configure
+OLAD_AUTORECONF = YES
 
 $(eval $(autotools-package))
