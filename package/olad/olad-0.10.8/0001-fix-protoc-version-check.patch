@@ -1,10 +1,13 @@
---- a/configure.ac
-+++ b/configure.ac
-@@ -123,7 +123,7 @@ AC_MSG_CHECKING([protoc version])
- PROTOC_VERSION=`$PROTOC --version | sed 's/libprotoc //'`
- AC_MSG_RESULT([$PROTOC_VERSION])
+--- a/m4/ola_protoc.m4
++++ b/m4/ola_protoc.m4
+@@ -38,11 +38,6 @@ AC_DEFUN([OLA_CHECK_PROTOC],
+   AC_MSG_RESULT([$PROTOC_VERSION])
 
--if expr $PROTOC_VERSION \< 2.3.0 > /dev/null; then
-+if false; then
-   AC_MSG_ERROR([protoc version too old $PROTOC_VERSION < 2.3.0])
- fi
+   AC_MSG_CHECKING([protoc version])
+-  if expr $PROTOC_VERSION \< 2.3.0 > /dev/null; then
+-    AC_MSG_RESULT([too old])
+-    AC_MSG_ERROR([protoc version too old $PROTOC_VERSION < 2.3.0])
+-  fi
+-  AC_MSG_RESULT([ok])
++  AC_MSG_RESULT([skipped])
+ ])
