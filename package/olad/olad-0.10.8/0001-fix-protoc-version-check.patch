@@ -11,4 +11,3 @@
 -  AC_MSG_RESULT([ok])
 +  AC_MSG_RESULT([skipped])
  ])
-
