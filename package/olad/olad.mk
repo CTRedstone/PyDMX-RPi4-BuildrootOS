@@ -6,7 +6,7 @@ OLAD_DEPENDENCIES = protobuf libmicrohttpd
 
 OLAD_CONF_OPTS = --disable-fatal-warnings
 
-# Needs to be on to reconfigure configure
+# autoreconf MUSS laufen, damit protoc.m4 → configure eingebaut wird
 OLAD_AUTORECONF = YES
 
 $(eval $(autotools-package))
