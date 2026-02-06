@@ -1,13 +1,29 @@
 --- a/config/ola.m4
 +++ b/config/ola.m4
-@@ -43,11 +43,6 @@ AC_DEFUN([OLA_CHECK_PROTOC],
-   AC_MSG_RESULT([$protoc_version])
-
+@@ -38,6 +38,7 @@ AC_DEFUN([PROTOBUF_SUPPORT],
+ elif test -n "$1" ; then
    AC_MSG_CHECKING([protoc version])
--  if test "$protoc_version" \< "$required" ; then
--    AC_MSG_RESULT([too old])
+   # Since v20.x we only get effectively the minor and patch versions out of protoc.
++  # PATCHED: Skip protoc version check for Buildroot cross-compiling
+   # Treat them as major and minor and everything should keep working indefinitely.
+   # See https://protobuf.dev/support/version-support/
+   # So we've got either of these:
+@@ -57,22 +58,7 @@ AC_DEFUN([PROTOBUF_SUPPORT],
+   [actual_minor=`echo $protoc_version | sed 's/[0-9][0-9]*\.\([0-9][0-9]*\)\.[0-9][0-9]*/\1/'`]
+   [actual_patch=`echo $protoc_version | sed 's/^.*[^0-9]//'`]
+
+-  protoc_version_proper=`expr \
+-    $actual_major \> $required_major \| \
+-    $actual_major \= $required_major \& \
+-    $actual_minor \> $required_minor \| \
+-    $actual_major \= $required_major \& \
+-    $actual_minor \= $required_minor \& \
+-    $actual_patch \>= $required_patch `
+-
+-  if test "$protoc_version_proper" = "1" ; then
+-    AC_MSG_RESULT([$protoc_version])
+-  else
 -    AC_MSG_ERROR([protoc version too old $protoc_version < $required]);
 -  fi
--  AC_MSG_RESULT([ok])
 +  AC_MSG_RESULT([skipped])
- ])
+ fi
