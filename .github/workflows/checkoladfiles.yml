@@ -1,0 +1,8 @@
+name: Build PyDMX Buildroot OS for RPi4
+on:
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
