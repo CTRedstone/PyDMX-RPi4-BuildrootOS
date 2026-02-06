@@ -1,4 +1,4 @@
-name: BCheck for OLAD files for protobuf version check
+name: Check for OLAD files for protobuf version check
 on:
     workflow_dispatch:
 
