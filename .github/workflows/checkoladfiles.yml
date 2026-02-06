@@ -1,8 +1,19 @@
-name: Build PyDMX Buildroot OS for RPi4
+name: BCheck for OLAD files for protobuf version check
 on:
     workflow_dispatch:
 
 jobs:
-    build:
+    checkoladfiles:
         runs-on: ubuntu-latest
         steps:
+            - name: Inspect OLA source
+              run: |
+                mkdir ola_src
+                curl -L https://github.com/OpenLightingProject/ola/releases/download/0.10.8/ola-0.10.8.tar.gz -o ola.tar.gz
+                tar -xzf ola.tar.gz -C ola_src
+                find ola_src -maxdepth 3 -type f | sort
+            - name: Search for protoc version check
+              run: |
+                grep -R "protoc version" -n ola_src || true
+                grep -R "PROTOC_VERSION" -n ola_src || true
+                grep -R "2.3.0" -n ola_src || true
