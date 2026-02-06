@@ -1,12 +1,12 @@
---- a/common/protoc.m4
-+++ b/common/protoc.m4
-@@ -45,11 +45,6 @@ AC_DEFUN([OLA_CHECK_PROTOC],
-   AC_MSG_RESULT([$PROTOC_VERSION])
+--- a/config/ola.m4
++++ b/config/ola.m4
+@@ -43,11 +43,6 @@ AC_DEFUN([OLA_CHECK_PROTOC],
+   AC_MSG_RESULT([$protoc_version])
 
    AC_MSG_CHECKING([protoc version])
--  if expr $PROTOC_VERSION \< 2.3.0 > /dev/null; then
+-  if test "$protoc_version" \< "$required" ; then
 -    AC_MSG_RESULT([too old])
--    AC_MSG_ERROR([protoc version too old $PROTOC_VERSION < 2.3.0])
+-    AC_MSG_ERROR([protoc version too old $protoc_version < $required]);
 -  fi
 -  AC_MSG_RESULT([ok])
 +  AC_MSG_RESULT([skipped])
