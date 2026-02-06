@@ -1,6 +1,5 @@
 name: Build PyDMX Buildroot OS for RPi4
 on:
-    push:
     workflow_dispatch:
 
 jobs:
