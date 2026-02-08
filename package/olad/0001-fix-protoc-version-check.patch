@@ -1,8 +1,8 @@
 --- a/config/ola.m4
 +++ b/config/ola.m4
 @@ -50,32 +50,4 @@
-elif test -n "$1" ; then
-  AC_MSG_CHECKING([protoc version])
+ elif test -n "$1" ; then
+   AC_MSG_CHECKING([protoc version])
 +  AC_MSG_RESULT([skipped version check])
 -  # Since v20.x we only get effectively the minor and patch versions out of protoc.
 -  # Treat them as major and minor and everything should keep working indefinitely.
@@ -33,4 +33,4 @@ elif test -n "$1" ; then
 -  else
 -    AC_MSG_ERROR([protoc version too old $protoc_version < $required]);
 -  fi
-fi
+ fi
