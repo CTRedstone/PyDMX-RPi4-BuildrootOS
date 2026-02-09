@@ -6,6 +6,9 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
+          - name: Checkout repo
+            uses: actions/checkout@v4
+        
           - name: Generate OLA patch from modified ola.m4
             run: |
               # 1. Download OLA source tarball
