@@ -1,26 +1,33 @@
 name: Build Patch for OLA Protoc version check bugfix
+on:
+    workflow_dispatch:
 
 jobs:
     build:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Generate OLA patch from modified ola.m4
-          run: |
-            # 1. Download OLA source tarball
-            wget https://github.com/OpenLightingProject/ola/releases/download/0.10.8/ola-0.10.8.tar.gz
+        runs-on: ubuntu-latest
+        steps:
+          - name: Generate OLA patch from modified ola.m4
+            run: |
+              # 1. Download OLA source tarball
+              wget https://github.com/OpenLightingProject/ola/releases/download/0.10.8/ola-0.10.8.tar.gz
 
-            # 2. Extract only config/ola.m4 from tarball
-            mkdir -p original_ola
-            tar -xzf ola-0.10.8.tar.gz -C original_ola
+              # 2. Extract only config/ola.m4 from tarball
+              mkdir -p original_ola
+              tar -xzf ola-0.10.8.tar.gz -C original_ola
 
-            # 3. Ensure patch directory exists
-            mkdir -p package/olad
+              # 3. Ensure patch directory exists
+              mkdir -p package/olad
 
-            # 4. Create unified diff between original and your modified version
-            diff -u \
-              original_ola/ola-0.10.8/config/ola.m4 \
-              package/olad/patches/ola.m4 \
-              > package/olad/0001-auto-generated.patch || true
+              # 4. Create unified diff between original and your modified version
+              diff -u \
+                original_ola/ola-0.10.8/config/ola.m4 \
+                package/olad/patches/ola.m4 \
+                > package/olad/0001-auto-generated.patch || true
 
-            echo "Generated patch:"
-            cat package/olad/0001-auto-generated.patch
+          - name: Information
+            run: |
+              echo "Patch needs to be copied into package/olad as f.ex. 0001-patchname.patch. Also you need to change the paths in the first lines to '--- a/config/ola.m4' and '+++ b/config/ola.m4'"
+
+          - name: Patch output
+            run: |
+              cat package/olad/0001-auto-generated.patch
