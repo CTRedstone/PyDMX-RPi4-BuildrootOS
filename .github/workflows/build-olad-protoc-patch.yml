@@ -24,10 +24,10 @@ jobs:
                 package/olad/patches/ola.m4 \
                 > package/olad/0001-auto-generated.patch || true
 
+              echo "VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV PATCH OUTPUT VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"
+              cat package/olad/0001-auto-generated.patch
+              echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA PATCH OUTPUT AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+
           - name: Information
             run: |
               echo "Patch needs to be copied into package/olad as f.ex. 0001-patchname.patch. Also you need to change the paths in the first lines to '--- a/config/ola.m4' and '+++ b/config/ola.m4'"
-
-          - name: Patch output
-            run: |
-              cat package/olad/0001-auto-generated.patch
