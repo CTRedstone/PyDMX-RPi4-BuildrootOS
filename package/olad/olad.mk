@@ -5,6 +5,7 @@ OLAD_SOURCE = ola-$(OLAD_VERSION).tar.gz
 OLAD_DEPENDENCIES = protobuf libmicrohttpd
 
 OLAD_CONF_OPTS = --disable-fatal-warnings
+OLAD_CONF_OPTS += --with-ola-protoc-plugin=no
 
 OLAD_AUTORECONF = YES
 
