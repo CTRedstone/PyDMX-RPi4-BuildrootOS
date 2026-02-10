@@ -1,3 +1,6 @@
+--- a/config/ola.m4
++++ b/config/ola.m4
+
 @@ -24,6 +24,11 @@
  AC_REQUIRE_CPP()
  PKG_CHECK_MODULES(libprotobuf, [protobuf >= $1])
