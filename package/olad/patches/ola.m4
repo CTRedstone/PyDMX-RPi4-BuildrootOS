@@ -63,18 +63,6 @@ if test "$with_ola_protoc_plugin" != "no"; then
   echo "set ola_protoc to $OLA_PROTOC"
 else
   OLA_PROTOC="$PROTOC --plugin=protoc-gen-cppservice=\$(top_builddir)/protoc/ola_protoc_plugin${EXEEXT}";
-  AC_CHECK_HEADER(
-      [google/protobuf/compiler/command_line_interface.h],
-      [],
-      AC_MSG_ERROR([Cannot find the protoc header files]))
-  SAVED_LIBS=$LIBS
-  LIBS="$LIBS -lprotoc"
-  AC_LINK_IFELSE(
-    [AC_LANG_PROGRAM([#include <google/protobuf/compiler/command_line_interface.h>],
-      [google::protobuf::compiler::CommandLineInterface cli])],
-    [TEST_LIBS="$TEST_LIBS -lprotoc"] [],
-    [AC_MSG_ERROR([cannot find libprotoc])])
-  LIBS=$SAVED_LIBS
 fi
 AC_SUBST([OLA_PROTOC])
 AM_CONDITIONAL(BUILD_OLA_PROTOC_PLUGIN, test "${with_ola_protoc_plugin}" = "no")
