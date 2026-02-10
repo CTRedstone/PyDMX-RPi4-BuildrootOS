@@ -63,6 +63,7 @@ if test "$with_ola_protoc_plugin" != "no"; then
   echo "set ola_protoc to $OLA_PROTOC"
 else
   OLA_PROTOC="$PROTOC --plugin=protoc-gen-cppservice=\$(top_builddir)/protoc/ola_protoc_plugin${EXEEXT}";
+  # Lines removed to prevent OLA from checking for Protoc Headers which are not relevant
 fi
 AC_SUBST([OLA_PROTOC])
 AM_CONDITIONAL(BUILD_OLA_PROTOC_PLUGIN, test "${with_ola_protoc_plugin}" = "no")
