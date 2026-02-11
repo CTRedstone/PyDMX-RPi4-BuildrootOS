@@ -24,5 +24,7 @@ common_libolacommon_la_LIBADD += common/protocol/libolaproto.la
 common/protocol/Ola.pb.cc common/protocol/Ola.pb.h: common/protocol/Makefile.mk common/protocol/Ola.proto
 	$(PROTOC) --cpp_out $(top_builddir)/common/protocol --proto_path $(srcdir)/common/protocol $(srcdir)/common/protocol/Ola.proto
 
-common/protocol/OlaService.pb.cpp common/protocol/OlaService.pb.h: common/protocol/Makefile.mk common/protocol/Ola.proto protoc/ola_protoc_plugin$(EXEEXT)
-	$(OLA_PROTOC) --cppservice_out $(top_builddir)/common/protocol --proto_path $(srcdir)/common/protocol $(srcdir)/common/protocol/Ola.proto
+common/protocol/OlaService.pb.cpp common/protocol/OlaService.pb.h: common/protocol/Makefile.mk common/protocol/Ola.proto
+   @echo "Skipping OlaService service stub regeneration; using pre-generated OlaService.pb.cpp/.h from source tarball."
+   @# Die Dateien liegen bereits im Tarball vor und werden nicht neu generiert,
+   @# da das alte ola_protoc_plugin mit modernen Protobuf-Versionen nicht mehr kompatibel ist.
