@@ -1,0 +1,13 @@
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -161,10 +161,9 @@
+ include common/Makefile.mk
+ include data/Makefile.mk
+ include debian/Makefile.mk
+ include doxygen/Makefile.mk
+-include examples/Makefile.mk
+ include include/Makefile.mk
+ include javascript/Makefile.mk
+ include man/Makefile.mk
+ include libs/Makefile.mk
+ include ola/Makefile.mk
