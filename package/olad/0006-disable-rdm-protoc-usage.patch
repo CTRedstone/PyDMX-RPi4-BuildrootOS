@@ -1,9 +1,44 @@
 --- a/common/rdm/Makefile.mk
 +++ b/common/rdm/Makefile.mk
-@@ -49,4 +49,4 @@
+@@ -56,7 +56,7 @@
  EXTRA_DIST += common/rdm/Pids.proto
  
--common/rdm/Pids.pb.cc common/rdm/Pids.pb.h: common/rdm/Makefile.mk common/rdm/Pids.proto
+ common/rdm/Pids.pb.cc common/rdm/Pids.pb.h: common/rdm/Makefile.mk common/rdm/Pids.proto
 -	$(PROTOC) --cpp_out $(top_builddir)/common/rdm --proto_path $(srcdir)/common/rdm $(srcdir)/common/rdm/Pids.proto
-+common/rdm/Pids.pb.cc common/rdm/Pids.pb.h: common/rdm/Makefile.mk common/rdm/Pids.proto
 +	@echo "Skipping Pids.pb regeneration; using pre-generated Pids.pb.cc/.h from Buildroot."
+ 
+ # TESTS_DATA
+ ##################################################
+@@ -67,6 +67,7 @@
+     common/rdm/testdata/duplicate_pid_value.proto \
+     common/rdm/testdata/inconsistent_pid.proto \
+     common/rdm/testdata/invalid_esta_pid.proto \
++    common/rdm/testdata/pids/manufacturer_names.proto \
+     common/rdm/testdata/pids/overrides.proto \
+     common/rdm/testdata/pids/pids1.proto \
+     common/rdm/testdata/pids/pids2.proto \
+@@ -85,6 +86,8 @@
+     common/rdm/RDMHelperTester \
+     common/rdm/RDMMessageTester \
+     common/rdm/RDMReplyTester \
++    common/rdm/ResponderHelperTester \
++    common/rdm/ResponderTagSetTester \
+     common/rdm/UIDAllocatorTester \
+     common/rdm/UIDTester
+ 
+@@ -141,6 +144,15 @@
+ common_rdm_RDMCommandSerializerTester_CXXFLAGS = $(COMMON_TESTING_FLAGS)
+ common_rdm_RDMCommandSerializerTester_LDADD = $(COMMON_TESTING_LIBS)
+ 
++common_rdm_ResponderHelperTester_SOURCES = common/rdm/ResponderHelperTest.cpp
++common_rdm_ResponderHelperTester_CXXFLAGS = $(COMMON_TESTING_FLAGS)
++common_rdm_ResponderHelperTester_LDADD = $(COMMON_TESTING_LIBS)
++
++common_rdm_ResponderTagSetTester_SOURCES = \
++    common/rdm/ResponderTagSetTest.cpp
++common_rdm_ResponderTagSetTester_CXXFLAGS = $(COMMON_TESTING_FLAGS)
++common_rdm_ResponderTagSetTester_LDADD = $(COMMON_TESTING_LIBS)
++
+ common_rdm_QueueingRDMControllerTester_SOURCES = \
+     common/rdm/QueueingRDMControllerTest.cpp \
+     common/rdm/TestHelper.h
