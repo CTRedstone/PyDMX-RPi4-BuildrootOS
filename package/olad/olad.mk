@@ -6,6 +6,7 @@ OLAD_DEPENDENCIES = protobuf libmicrohttpd
 
 OLAD_CONF_OPTS = --disable-fatal-warnings
 OLAD_CONF_OPTS += --without-ola-protoc-plugin
+OLAD_CONF_OPTS += --disable-examples
 
 define OLAD_COPY_MISSING_RPC_FILES
     cp $(OLAD_PKGDIR)/files/common/rpc/TestService.pb.* $(@D)/common/rpc/
