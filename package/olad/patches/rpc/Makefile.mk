@@ -29,8 +29,10 @@ EXTRA_DIST += \
 common/rpc/Rpc.pb.cc common/rpc/Rpc.pb.h: common/rpc/Makefile.mk common/rpc/Rpc.proto
 	$(PROTOC) --cpp_out $(top_builddir)/common/rpc --proto_path $(srcdir)/common/rpc $(srcdir)/common/rpc/Rpc.proto
 
-common/rpc/TestService.pb.cc common/rpc/TestService.pb.h: common/rpc/Makefile.mk common/rpc/TestService.proto
-	$(PROTOC) --cpp_out $(top_builddir)/common/rpc --proto_path $(srcdir)/common/rpc $(srcdir)/common/rpc/TestService.proto
+common/rpc/TestServiceService.pb.cpp common/rpc/TestServiceService.pb.h: common/rpc/Makefile.mk common/rpc/TestService.proto
+	@echo "Skipping TestService service stub regeneration; using pre-generated TestServiceService.pb.cpp/.h from source tarball."
+	@# Die Dateien liegen bereits im Tarball vor und werden nicht neu generiert,
+	@# da das alte ola_protoc_plugin mit modernen Protobuf-Versionen nicht mehr kompatibel ist.
 
 common/rpc/TestServiceService.pb.cpp common/rpc/TestServiceService.pb.h: common/rpc/Makefile.mk common/rpc/TestService.proto protoc/ola_protoc_plugin$(EXEEXT)
 	$(OLA_PROTOC) --cppservice_out $(top_builddir)/common/rpc --proto_path $(srcdir)/common/rpc $(srcdir)/common/rpc/TestService.proto
