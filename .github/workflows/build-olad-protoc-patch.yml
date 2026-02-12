@@ -59,7 +59,7 @@ jobs:
               cat package/olad/0004-fix-protoc-use-rpc.patch
               echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA PATCH OUTPUT (rpc/Makefile.mk) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
               echo "VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV PATCH OUTPUT (rdm/Makefile.mk) VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"
-              cat package/olad/0004-fix-protoc-use-rdm.patch
+              cat package/olad/0006-fix-protoc-use-rdm.patch
               echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA PATCH OUTPUT (rdm/Makefile.mk) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 
           - name: Information
