@@ -1,0 +1,9 @@
+--- a/common/rdm/Makefile.mk
++++ b/common/rdm/Makefile.mk
+@@ -49,4 +49,4 @@
+ EXTRA_DIST += common/rdm/Pids.proto
+ 
+-common/rdm/Pids.pb.cc common/rdm/Pids.pb.h: common/rdm/Makefile.mk common/rdm/Pids.proto
+-	$(PROTOC) --cpp_out $(top_builddir)/common/rdm --proto_path $(srcdir)/common/rdm $(srcdir)/common/rdm/Pids.proto
++common/rdm/Pids.pb.cc common/rdm/Pids.pb.h: common/rdm/Makefile.mk common/rdm/Pids.proto
++	@echo "Skipping Pids.pb regeneration; using pre-generated Pids.pb.cc/.h from Buildroot."
