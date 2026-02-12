@@ -41,6 +41,11 @@ jobs:
                 package/olad/patches/rpc/Makefile.mk \
                 > package/olad/0004-fix-protoc-use-rpc.patch || true
 
+              diff -u 
+                original_ola/ola-0.10.8/common/rdm/Makefile.mk 
+                package/olad/patches/rdm/Makefile.mk 
+                > package/olad/0006-fix-protoc-use-rdm.patch || true
+
               echo "VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV PATCH OUTPUT (ola.m4) VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"
               cat package/olad/0001-auto-generated.patch
               echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA PATCH OUTPUT (ola.m4) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -53,6 +58,9 @@ jobs:
               echo "VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV PATCH OUTPUT (rpc/Makefile.mk) VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"
               cat package/olad/0004-fix-protoc-use-rpc.patch
               echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA PATCH OUTPUT (rpc/Makefile.mk) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              echo "VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV PATCH OUTPUT (rdm/Makefile.mk) VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"
+              cat package/olad/0004-fix-protoc-use-rdm.patch
+              echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA PATCH OUTPUT (rdm/Makefile.mk) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 
           - name: Information
             run: |
