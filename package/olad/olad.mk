@@ -7,6 +7,12 @@ OLAD_DEPENDENCIES = protobuf libmicrohttpd
 OLAD_CONF_OPTS = --disable-fatal-warnings
 OLAD_CONF_OPTS += --without-ola-protoc-plugin
 
+define OLAD_COPY_MISSING_RPC_FILES
+    cp $(OLAD_PKGDIR)/files/common/rpc/TestService.pb.* $(@D)/common/rpc/
+endef
+
+OLAD_POST_PATCH_HOOKS += OLAD_COPY_MISSING_RPC_FILES
+
 OLAD_AUTORECONF = YES
 
 $(eval $(autotools-package))
