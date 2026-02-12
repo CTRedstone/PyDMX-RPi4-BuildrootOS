@@ -14,21 +14,23 @@ jobs:
               sudo apt-get update
               sudo apt-get install -y build-essential gcc g++ make libc6-dev git rsync wget cpio unzip python3 protobuf-compiler
 
-          - name: Generate missing OLA RPC files
+          - name: Generate missing OLA protobuf files (RPC + RDM)
             run: |
               # OLA 0.10.8 herunterladen
               wget https://github.com/OpenLightingProject/ola/releases/download/0.10.8/ola-0.10.8.tar.gz
               tar -xzf ola-0.10.8.tar.gz
-              
-              # In das RPC-Verzeichnis wechseln
+
+              # RPC: TestService
               cd ola-0.10.8/common/rpc
-              
-              # Fehlende Dateien generieren
               protoc --cpp_out=. TestService.proto
-              
-              # Dateien in Buildroot-Paketstruktur kopieren
               mkdir -p ../../../package/olad/files/common/rpc
               cp TestService.pb.* ../../../package/olad/files/common/rpc/
+
+              # RDM: Pids
+              cd ../rdm
+              protoc --cpp_out=. Pids.proto
+              mkdir -p ../../../package/olad/files/common/rdm
+              cp Pids.pb.* ../../../package/olad/files/common/rdm/
 
           - name: Clear Output directory
             run: |
