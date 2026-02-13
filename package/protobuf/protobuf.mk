@@ -53,8 +53,8 @@
 #PROTOBUF_INSTALL_STAGING = YES
 
 PROTOBUF_VERSION = 3.21.12
-PROTOBUF_SITE = https://github.com/protocolbuffers/protobuf/releases/download/v$(PROTOBUF_VERSION)
-PROTOBUF_SOURCE = protobuf-cpp-$(PROTOBUF_VERSION).tar.gz
+PROTOBUF_SITE = https://deb.debian.org/debian/pool/main/p/protobuf
+PROTOBUF_SOURCE = protobuf_$(PROTOBUF_VERSION).orig.tar.gz
 
 PROTOBUF_INSTALL_STAGING = YES
 PROTOBUF_INSTALL_TARGET = YES
