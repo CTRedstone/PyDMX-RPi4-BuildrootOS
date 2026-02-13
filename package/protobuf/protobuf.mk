@@ -70,4 +70,4 @@ PROTOBUF_CONF_OPTS += -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_WITH_ZLIB=ON
 #endif
 
 $(eval $(cmake-package))
-#$(eval $(host-cmake-package))
+$(eval $(host-cmake-package))
