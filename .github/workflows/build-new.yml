@@ -1,54 +1,33 @@
-name: New Build PyDMX Buildroot OS for RPi4
+name: (NEW) Build PyDMX Buildroot OS for RPi4
 on:
-  workflow_dispatch:
+    workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    build:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout repository
+            uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y build-essential gcc g++ make libc6-dev git rsync wget cpio unzip python3
+          - name: Install dependencies
+            run: |
+              sudo apt-get update
+              sudo apt-get install -y build-essential gcc g++ make libc6-dev git rsync wget cpio unzip python3 protobuf-compiler
 
-      - name: Clear Output directory
-        run: |
-          rm -rf output
+          - name: Clear Output directory
+            run: |
+              rm -rf output
 
-      - name: Generate OLA patch from modified ola.m4
-        run: |
-          # 1. Download OLA source tarball
-          wget https://github.com/OpenLightingProject/ola/releases/download/0.10.8/ola-0.10.8.tar.gz
+          - name: Make fake expr for OLAD executable
+            run: |
+              chmod +x package/olad/fakebin/expr
 
-          # 2. Extract only config/ola.m4 from tarball
-          mkdir -p original_ola
-          tar -xzf ola-0.10.8.tar.gz -C original_ola
+          - name: Build
+            run: |
+              make
 
-          # 3. Ensure patch directory exists
-          mkdir -p package/olad
-
-          # 4. Create unified diff between original and your modified version
-          diff -u \
-            original_ola/ola-0.10.8/config/ola.m4 \
-            package/olad/patches/ola.m4 \
-            > package/olad/0001-auto-generated.patch || true
-
-          echo "Generated patch:"
-          cat package/olad/0001-auto-generated.patch
-
-      - name: Make fake expr for OLAD executable
-        run: |
-          chmod +x package/olad/fakebin/expr
-
-      - name: Build
-        run: |
-          make
-
-      - name: Upload System Images
-        uses: actions/upload-artifact@v4
-        with:
-          name: buildroot-images
-          path: output/images
+          - name: Upload System Images
+            uses: actions/upload-artifact@v4
+            with:
+              name: buildroot-images
+              path: output/images
