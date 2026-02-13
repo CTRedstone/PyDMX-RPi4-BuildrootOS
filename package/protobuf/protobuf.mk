@@ -60,16 +60,14 @@ PROTOBUF_INSTALL_STAGING = YES
 PROTOBUF_INSTALL_TARGET = YES
 
 PROTOBUF_CONF_OPTS = --disable-shared
+PROTOBUF_CONF_OPTS += -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_WITH_ZLIB=ON
 
+#ifeq ($(BR2_PACKAGE_ZLIB),y)
+#PROTOBUF_DEPENDENCIES += zlib
+#PROTOBUF_CONF_OPTS += -Dprotobuf_WITH_ZLIB=ON
+#else
+#PROTOBUF_CONF_OPTS += -Dprotobuf_WITH_ZLIB=OFF
+#endif
 
-ifeq ($(BR2_PACKAGE_ZLIB),y)
-PROTOBUF_DEPENDENCIES += zlib
-PROTOBUF_CONF_OPTS += -Dprotobuf_WITH_ZLIB=ON
-else
-PROTOBUF_CONF_OPTS += -Dprotobuf_WITH_ZLIB=OFF
-endif
-
-$(eval $(autotools-package))
-
-#$(eval $(cmake-package))
+$(eval $(cmake-package))
 #$(eval $(host-cmake-package))
