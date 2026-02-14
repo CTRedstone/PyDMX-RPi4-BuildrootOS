@@ -7,6 +7,8 @@ OLAD_DEPENDENCIES = protobuf libmicrohttpd
 OLAD_CONF_OPTS = --disable-fatal-warnings
 OLAD_CONF_OPTS += --without-ola-protoc-plugin
 OLAD_CONF_OPTS += --disable-examples
+HOST_OLAD_CONF_OPTS = --disable-shared
+HOST_OLAD_CONF_OPTS += --enable-static
 
 # The following lines aren't needed anyymore due to change of used protobuf version
 #define OLAD_COPY_MISSING_RPC_FILES
@@ -26,6 +28,8 @@ OLAD_CONF_OPTS += --disable-examples
 #OLAD_POST_PATCH_HOOKS += OLAD_COPY_MISSING_RPC_FILES
 
 OLAD_AUTORECONF = YES
+HOST_OLAD_DEPENDENCIES = host-protobuf
+HOST_OLAD_AUTORECONF = YES
 
 $(eval $(autotools-package))
 # VVV In case that target architecture isn't the same as the build process is executed on VVV
