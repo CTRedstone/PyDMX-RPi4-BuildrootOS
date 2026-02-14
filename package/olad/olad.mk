@@ -17,7 +17,7 @@ OLAD_CONF_OPTS += --disable-examples
 #	cp $(OLAD_PKGDIR)/files/common/rpc/TestService.pb.* $(@D)/common/rpc/
 #endef
 
-define OLAD_COPY_MISSING_RDM_FILES
+#define OLAD_COPY_MISSING_RDM_FILES
 #	cp $(OLAD_PKGDIR)/files/common/rdm/Pids.pb.* $(@D)/common/rdm/
 #endef
 
