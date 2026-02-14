@@ -5,10 +5,8 @@ OLAD_SOURCE = ola-$(OLAD_VERSION).tar.gz
 OLAD_DEPENDENCIES = protobuf libmicrohttpd
 
 OLAD_CONF_OPTS = --disable-fatal-warnings
-OLAD_CONF_OPTS += --without-ola-protoc-plugin
+#OLAD_CONF_OPTS += --without-ola-protoc-plugin
 OLAD_CONF_OPTS += --disable-examples
-HOST_OLAD_CONF_OPTS = --disable-shared
-HOST_OLAD_CONF_OPTS += --enable-static
 
 # The following lines aren't needed anyymore due to change of used protobuf version
 #define OLAD_COPY_MISSING_RPC_FILES
@@ -29,6 +27,7 @@ HOST_OLAD_CONF_OPTS += --enable-static
 
 OLAD_AUTORECONF = YES
 HOST_OLAD_DEPENDENCIES = host-protobuf
+HOST_OLAD_CONF_OPTS = --disable-shared --enable-static
 HOST_OLAD_AUTORECONF = YES
 
 $(eval $(autotools-package))
