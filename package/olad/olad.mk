@@ -30,6 +30,14 @@ HOST_OLAD_DEPENDENCIES = host-protobuf
 HOST_OLAD_CONF_OPTS = --disable-shared --enable-static
 HOST_OLAD_AUTORECONF = YES
 
+# Force ola to use host plugin
+define OLAD_FIX_PLUGIN_PATH
+	mkdir -p $(@D)/protoc
+	cp $(HOST_DIR)/bin/ola_protoc_plugin $(@D)/protoc/ola_protoc_plugin
+endef
+
+OLAD_POST_BUILD_HOOKS += OLAD_FIX_PLUGIN_PATH
+
 $(eval $(autotools-package))
 # VVV In case that target architecture isn't the same as the build process is executed on VVV
 $(eval $(host-autotools-package))
