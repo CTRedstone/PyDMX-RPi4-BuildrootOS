@@ -28,3 +28,5 @@ OLAD_CONF_OPTS += --disable-examples
 OLAD_AUTORECONF = YES
 
 $(eval $(autotools-package))
+# VVV In case that target architecture isn't the same as the build process is executed on VVV
+$(eval $(host-autotools-package))
