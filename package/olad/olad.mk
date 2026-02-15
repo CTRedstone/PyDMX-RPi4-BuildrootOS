@@ -41,4 +41,4 @@ OLAD_POST_PATCH_HOOKS += OLAD_FIX_PLUGIN_PATH
 
 $(eval $(autotools-package))
 # VVV In case that target architecture isn't the same as the build process is executed on VVV
-$(eval $(host-autotools-package))
+#$(eval $(host-autotools-package))
