@@ -26,12 +26,12 @@ OLAD_CONF_OPTS += --disable-examples
 #OLAD_POST_PATCH_HOOKS += OLAD_COPY_MISSING_RPC_FILES
 
 OLAD_AUTORECONF = YES
-HOST_OLAD_DEPENDENCIES = host-protobuf
-HOST_OLAD_CONF_OPTS = --disable-shared --enable-static
-HOST_OLAD_AUTORECONF = YES
+#HOST_OLAD_DEPENDENCIES = host-protobuf
+#HOST_OLAD_CONF_OPTS = --disable-shared --enable-static
+#HOST_OLAD_AUTORECONF = YES
 
 OLAD_CONF_OPTS += --without-ola-protoc-plugin
-HOST_OLAD_CONF_OPTS += --with-ola-protoc-plugin
+#HOST_OLAD_CONF_OPTS += --with-ola-protoc-plugin
 define OLAD_FIX_PLUGIN_PATH
 	mkdir -p $(@D)/protoc
 	cp $(HOST_DIR)/bin/ola_protoc_plugin $(@D)/protoc/ola_protoc_plugin
@@ -40,5 +40,22 @@ endef
 OLAD_POST_PATCH_HOOKS += OLAD_FIX_PLUGIN_PATH
 
 $(eval $(autotools-package))
+
 # VVV In case that target architecture isn't the same as the build process is executed on VVV
+# Configure host package
+
+HOST_OLAD_VERSION = $(OLAD_VERSION)
+HOST_OLAD_SOURCE = $(OLAD_SOURCE)
+HOST_OLAD_SITE = $(OLAD_SITE)
+
+HOST_OLAD_DEPENDENCIES = host-protobuf
+HOST_OLAD_AUTORECONF = YES
+
+HOST_OLAD_CONF_OPTS = \
+	--disable-shared \
+	--enable-static \
+	--without-ola-protoc-plugin
+
+$(eval $(host-autotools-package))
+
 #$(eval $(host-autotools-package))
