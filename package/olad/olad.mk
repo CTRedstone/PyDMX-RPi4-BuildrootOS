@@ -31,8 +31,10 @@ HOST_OLAD_AUTORECONF = YES
 
 HOST_OLAD_CONF_OPTS = \
 	--disable-shared \
-	--enable-static \
-	--with-ola-protoc-plugin
+	--enable-static
+
+# Next line commented out since it would allow an option to be used which tells OLAD to run 'yes' as a command
+#HOST_OLAD_CONF_OPTS += --with-ola-protoc-plugin
 HOST_OLAD_CONF_OPTS += --disable-unittests
 HOST_OLAD_CONF_OPTS += --disable-cppunit
 
