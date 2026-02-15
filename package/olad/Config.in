@@ -2,5 +2,7 @@ config BR2_PACKAGE_OLAD
 	bool "Open Lighting Architecture (OLAD)"
 	select BR2_PACKAGE_PROTOBUF
 	select BR2_PACKAGE_LIBMICROHTTPD
+	source "package/olad/olad.mk"
+	source "package/olad/olad-host.mk"
 	help
 		The Open Lighting Architecture daemon
