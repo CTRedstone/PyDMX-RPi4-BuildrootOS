@@ -19,6 +19,20 @@ OLAD_POST_PATCH_HOOKS += OLAD_FIX_PLUGIN_PATH
 
 $(eval $(autotools-package))
 
+HOST_OLAD_VERSION = $(OLAD_VERSION)
+HOST_OLAD_SOURCE = $(OLAD_SOURCE)
+HOST_OLAD_SITE = $(OLAD_SITE)
+
+HOST_OLAD_DEPENDENCIES = host-protobuf
+HOST_OLAD_AUTORECONF = YES
+
+HOST_OLAD_CONF_OPTS = \
+	--disable-shared \
+	--enable-static \
+	--with-ola-protoc-plugin
+
+$(eval $(host-autotools-package))
+
 # COMMENTED FOR NEW VERSION YOU SEE ABOVE THIS
 
 #OLAD_VERSION = 0.10.8
