@@ -8,6 +8,7 @@ OLAD_DEPENDENCIES += host-olad
 OLAD_CONF_OPTS = --disable-fatal-warnings
 OLAD_CONF_OPTS += --without-ola-protoc-plugin
 OLAD_CONF_OPTS += --disable-examples
+OLAD_CONF_OPTS += --disable-unittests
 OLAD_CONF_OPTS += --disable-cppunit
 
 OLAD_AUTORECONF = YES
@@ -32,6 +33,7 @@ HOST_OLAD_CONF_OPTS = \
 	--disable-shared \
 	--enable-static \
 	--with-ola-protoc-plugin
+HOST_OLAD_CONF_OPTS += --disable-unittests
 HOST_OLAD_CONF_OPTS += --disable-cppunit
 
 $(eval $(host-autotools-package))
