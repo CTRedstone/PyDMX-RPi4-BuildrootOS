@@ -3,6 +3,7 @@ OLAD_SITE = https://github.com/OpenLightingProject/ola/releases/download/$(OLAD_
 OLAD_SOURCE = ola-$(OLAD_VERSION).tar.gz
 
 OLAD_DEPENDENCIES = protobuf libmicrohttpd
+OLAD_DEPENDENCIES += host-olad
 
 OLAD_CONF_OPTS = --disable-fatal-warnings
 OLAD_CONF_OPTS += --without-ola-protoc-plugin
