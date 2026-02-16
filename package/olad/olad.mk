@@ -6,7 +6,7 @@ OLAD_DEPENDENCIES = protobuf libmicrohttpd
 OLAD_DEPENDENCIES += host-olad
 
 OLAD_CONF_OPTS = --disable-fatal-warnings
-OLAD_CONF_OPTS += --without-ola-protoc-plugin
+#OLAD_CONF_OPTS += --without-ola-protoc-plugin
 OLAD_CONF_OPTS += --disable-examples
 OLAD_CONF_OPTS += --disable-unittests
 OLAD_CONF_OPTS += --disable-cppunit
