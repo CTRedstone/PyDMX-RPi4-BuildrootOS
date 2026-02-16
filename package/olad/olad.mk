@@ -7,19 +7,18 @@ OLAD_DEPENDENCIES += host-olad
 
 OLAD_CONF_OPTS = --disable-fatal-warnings
 #OLAD_CONF_OPTS += --without-ola-protoc-plugin
-OLAD_CONF_OPTS += --disable-examples
-OLAD_CONF_OPTS += --disable-unittests
-OLAD_CONF_OPTS += --disable-cppunit
+#OLAD_CONF_OPTS += --disable-examples
+#OLAD_CONF_OPTS += --disable-unittests
+#OLAD_CONF_OPTS += --disable-cppunit
 
 OLAD_AUTORECONF = YES
 
 define OLAD_FIX_PLUGIN_PATH
 	mkdir $(@D)/protoc
-	mkdir $(HOST_DIR)/bin/ola_protoc_plugin
-	cp $(@D)/protoc/ola_protoc_plugin $(HOST_DIR)/bin/ola_protoc_plugin
+	cp $(HOST_DIR)/bin/ola_protoc_plugin $(@D)/protoc/ola_protoc_plugin
 endef
 
-#OLAD_POST_PATCH_HOOKS += OLAD_FIX_PLUGIN_PATH
+OLAD_POST_PATCH_HOOKS += OLAD_FIX_PLUGIN_PATH
 
 $(eval $(autotools-package))
 
@@ -36,8 +35,8 @@ HOST_OLAD_CONF_OPTS = \
 
 # Next line commented out since it would allow an option to be used which tells OLAD to run 'yes' as a command
 #HOST_OLAD_CONF_OPTS += --with-ola-protoc-plugin
-HOST_OLAD_CONF_OPTS += --disable-unittests
-HOST_OLAD_CONF_OPTS += --disable-cppunit
+#HOST_OLAD_CONF_OPTS += --disable-unittests
+#HOST_OLAD_CONF_OPTS += --disable-cppunit
 
 $(eval $(host-autotools-package))
 
