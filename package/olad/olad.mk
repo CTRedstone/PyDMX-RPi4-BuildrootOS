@@ -14,11 +14,12 @@ OLAD_CONF_OPTS += --disable-cppunit
 OLAD_AUTORECONF = YES
 
 define OLAD_FIX_PLUGIN_PATH
-	mkdir -p $(@D)/protoc
-	cp $(HOST_DIR)/bin/ola_protoc_plugin $(@D)/protoc/ola_protoc_plugin
+	mkdir $(@D)/protoc
+	mkdir $(HOST_DIR)/bin/ola_protoc_plugin
+	cp $(@D)/protoc/ola_protoc_plugin $(HOST_DIR)/bin/ola_protoc_plugin
 endef
 
-OLAD_POST_PATCH_HOOKS += OLAD_FIX_PLUGIN_PATH
+#OLAD_POST_PATCH_HOOKS += OLAD_FIX_PLUGIN_PATH
 
 $(eval $(autotools-package))
 
